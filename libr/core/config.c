@@ -1760,6 +1760,10 @@ R_API int r_core_config_init(RCore *core) {
 	/* nkeys */
 	SETPREF("key.s", "", "override step into action");
 	SETPREF("key.S", "", "override step over action");
+
+    /* vis */
+    SETI("vis.anallines", 16, "Number of bytes to disassembly in visual code analysis manipulation");
+
 	for (i=1; i<13; i++) {
 		snprintf (buf, sizeof (buf), "key.f%d", i);
 		snprintf (buf+10, sizeof (buf)-10,

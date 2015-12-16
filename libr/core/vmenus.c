@@ -1496,7 +1496,8 @@ static int option = 0;
 static void r_core_visual_anal_refresh_column (RCore *core) {
 	const ut64 addr = level? core->offset: var_functions_show (core, option, 0);
 	r_cons_printf ("Visual code analysis manipulation\n");
-	r_core_cmdf (core, "pd @ 0x%"PFMT64x"!16", addr);
+    int visbytes = r_config_get_i (core->config, "vis.anallines");
+	r_core_cmdf (core, "pd @ 0x%"PFMT64x"!%d", addr, visbytes);
 }
 
 static ut64 r_core_visual_anal_refresh (RCore *core) {
